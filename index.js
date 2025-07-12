@@ -21,7 +21,7 @@ app.get('/user/:id', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
 
-app.post('/strategy', async (req, res) => {
+/*app.post('/strategy', async (req, res) => {
   const { user_id, merchant, amount } = req.body;
 
   if (!user_id || !merchant || !amount) {
@@ -91,4 +91,16 @@ app.post('/strategy', async (req, res) => {
     console.error(err);
     res.status(500).json({ error: "Strategy computation failed" });
   }
+});*/
+app.use(express.json());
+
+app.post('/strategy', (req, res) => {
+  const { user_id, merchant, amount } = req.body;
+  if (!user_id || !merchant || !amount) {
+    return res.status(400).json({ error: 'Missing input' });
+  }
+
+  res.json({
+    best_strategy: `Mock response for ${merchant} and amount ₹${amount}`,
+  });
 });
