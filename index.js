@@ -1,7 +1,9 @@
 import express from 'express';
-import supabase from './supabaseClient.js'; // make sure this file exists
+import cors from 'cors';
+import supabase from './supabaseClient.js';
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 // Health check
