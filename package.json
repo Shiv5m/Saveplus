@@ -1,0 +1,12 @@
+{
+  "name": "payment-strategy-backend",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.7",
+    "express": "^4.19.2"
+  }
+}
